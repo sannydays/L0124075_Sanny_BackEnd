@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Quicksand:wght@300;400;500&display=swap');
+
+body {
+    font-family: 'Poppins', 'Quicksand', sans-serif; 
+    background-color: #fce4ec; 
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    height: 100vh;
+    background: url(../image/background.jpg);
+}
+
+.heading {
+    background-color: #ff80ab; /* Soft pink */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px; /* Rounded edges */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+}
+
+.heading h2 {
+    font-size: 32px;
+    font-family: 'Comic Sans MS', sans-serif;
+    letter-spacing: 1px;
+}
+
+form {
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #ffffff5b;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form p {
+    font-size: 18px;
+    color: #ff4081; 
+    font-weight: bold;
+}
+
+.taskInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #f8bbd0;
+    border-radius: 15px; 
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #fce4ec;
+}
+
+.taskInput:focus {
+    border-color: #ff4081;
+    background-color: #fff;
+}
+
+
+button.add_btn {
+    width: 100%;
+    max-width: 200px;
+    padding: 12px;
+    font-size: 18px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 15px; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button.add_btn:hover {
+    background-color: #f50057;
+}
+
+button.add_btn:active {
+    background-color: #c51162;
+}
+
+table {
+    font-family: 'Lucida Sans', Geneva;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 30px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #f08eb7ea;
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    font-size: 18px;
+    border-bottom: 1px solid #f8bbd0; 
+}
+
+th {
+    background-color: #ff80ab;
+    color: rgb(255, 255, 255);
+    font-family: 'Comic Sans MS', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+tr:nth-child(even) {
+    background-color: #f8bbd0;
+}
+
+tr:hover {
+    background-color: #ffe0f0; 
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions a {
+    color: #ff4081;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.actions a:hover {
+    color: #f50057;
+}
+
+.actions .edit {
+    color: #f06292;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.actions .edit:hover {
+    color: #ec407a;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 10%;  /* Adjusted top position for better placement */
+    left: 70%; /* Keep modal at the right side of the screen */
+    width: 300px; /* Modal width */
+    height: auto;
+    background-color: rgba(223, 144, 144, 0.3);
+    transform: translateY(0);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 15px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #ff4081;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #f50057;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsivitas - Modal akan lebih kecil di perangkat mobile */
+@media (max-width: 768px) {
+    .heading h2 {
+        font-size: 28px;
+    }
+
+    .taskInput,
+    button.add_btn {
+        width: 100%;
+        max-width: 90%;
+    }
+
+    table {
+        max-width: 100%;
+    }
+
+    .actions a, .actions .edit {
+        font-size: 18px;
+    }
+
+    .modal {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%; /* Modal width on smaller screens */
+    }
+}
